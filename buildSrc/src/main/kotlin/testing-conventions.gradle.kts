@@ -15,6 +15,11 @@ tasks.withType<Test>().configureEach {
 		events = setOf(FAILED)
 		exceptionFormat = FULL
 	}
+	reports {
+		junitXml.isEnabled = true
+		html.isEnabled = true
+	}
+
 	retry {
 		maxRetries.set(providers.gradleProperty("retries").map(String::toInt).orElse(2))
 	}

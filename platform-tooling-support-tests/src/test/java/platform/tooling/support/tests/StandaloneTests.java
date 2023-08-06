@@ -172,6 +172,10 @@ class StandaloneTests {
 				.run(false);
 
 		assertEquals(1, result.getExitCode(), String.join("\n", result.getOutputLines("out")));
+		System.out.println("STDOUT:");
+		System.out.println(result.getOutput("out"));
+		System.out.println("\nSTDERR:");
+		System.out.println(result.getOutput("err"));
 
 		var workspace = Request.WORKSPACE.resolve("standalone");
 		var expectedOutLines = Files.readAllLines(workspace.resolve("expected-out.txt"));
