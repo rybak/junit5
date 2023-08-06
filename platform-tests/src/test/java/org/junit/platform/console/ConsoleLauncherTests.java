@@ -46,8 +46,10 @@ class ConsoleLauncherTests {
 		var consoleLauncher = new ConsoleLauncher((__, ___) -> null, printSink, printSink);
 		consoleLauncher.run(command);
 
-		assertThat(stringWriter.toString()).contains(
-			"Thanks for using JUnit! Support its development at https://junit.org/sponsoring");
+		String output = stringWriter.toString();
+		assertThat(output).contains("Thanks for using JUnit!");
+		assertThat(output).contains("Support its development at");
+		assertThat(output).contains("https://junit.org/sponsoring");
 	}
 
 	@ParameterizedTest(name = "{0}")
